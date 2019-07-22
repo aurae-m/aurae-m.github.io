@@ -1,0 +1,178 @@
+<?php
+session_start(); ?> 
+
+<html lang="en">
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+     <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+
+    <meta name="google-signin-scope" content="profile email">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <meta name="google-signin-client_id" content="232399468940-kqjgeubnaimp5a8hr5c4uk2qo163jdjr.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+
+
+    <style type="text/css">
+      .tabs-content.carousel { height: 100%; overflow-x:hidden; overflow-y: scroll; } .tabs-content.carousel .carousel-item { width: 100%; height: 100%; } html,body{ overflow:hidden; height:100%; }
+    </style>
+  </head>
+  <body class="" style="background-color: #140054;
+background-image: url('https://www.transparenttextures.com/patterns/arabesque.png');">
+
+
+
+ 
+  <ul id="" class="tabs hide">
+    <li class="tab col s3"><a class="active" href="#test-swipe-1">Test 1</a></li>
+    <li class="tab col s3"><a  href="#test-swipe-2">Test 2</a></li>
+    <li class="tab col s3"><a href="#test-swipe-3">Test 3</a></li>
+    <li class="tab col s3"><a href="#test-swipe-4">Test 3</a></li>
+  </ul>
+  <div id="test-swipe-1" class="col s12" style="">
+   <div class="container white" style="border-style: solid;
+  border-width: 5px; border-color: #2962ff; border-radius: 15px;position: relative;top: 10px; height: 80%; background-position: center top;background-size: 200px; background-repeat: no-repeat;background-image: url('hd aurae.png'); background-color: #3f51b5;">
+<div style="position: absolute; top:40%; width: 100%;">
+  <div style=""><center><h4 style="
+  background: -webkit-linear-gradient(#0d47a1, #311b92);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;"><b>Augmented Reality Accelerated Education</b><br><br><br></h4></center></div>
+</div>
+
+</div>
+  </div>
+  <div id="test-swipe-2" class="col s12" style="">
+   <div class="container" style="border-style: solid;
+  border-width: 5px; border-color: #2962ff; border-radius: 15px;position: relative;top: 10px; height: 80%; background-color: #2962ff"><center><img src="g4774.png" style="width: 80%;">
+<h5 style="
+  background: -webkit-linear-gradient(white, white);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;">Don't just study <br>Feel the subject with <b>Augmented Reality</b></h5></center></div>
+  </div>
+  <div id="test-swipe-3" class="col s12 ">
+    <div class="container" style="border-style: solid;
+  border-width: 5px; border-color: #3f51b5; border-radius: 15px;position: relative;top: 10px; height: 80%; background-color: #3f51b5"><center>
+    <img src="5368.png" style="width: 90%;"><br><br><br>
+<h5 class="white-text"><b>Quizes</b> that<br> take you beyond!</h5>
+  </center>
+  </div>
+  </div>
+  <div id="test-swipe-4" class="col s12 "><div class="container " style="border-style: solid;
+  border-width: 5px; border-color: #673ab7; border-radius: 15px;position: relative;top: 10px; height: 80%; background-position: center top;background-size: 100%; background-repeat: no-repeat;background-image: url(''); background-color: #673ab7;">
+    <center>
+    <img src="53651.png" style="width: 90%;">
+<h5 class="white-text">Get a <b>Dashboard</b> and<br> witness your <b>success</b> with our team</h5>
+  </center>
+
+  </div></div>
+
+
+ <div style="position: fixed;bottom: 10px; width: 100%; ">
+  
+  <center><div style="border-style: solid;
+  border-width: 5px; border-color: #1b5e20; border-radius: 15px; background-color: white">
+    <div class="g-signin2" data-onsuccess="onSignIn" 
+      -theme="dark" data-width="300" data-height="50"
+      data-longtitle="true"></div></div>
+  </center>
+</div>
+
+
+    <!-- The core Firebase JS SDK is always required and must be listed first -->
+<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+
+<script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+
+<!-- TODO: Add SDKs for Firebase products that you want to use
+     https://firebase.google.com/docs/web/setup#config-web-app -->
+
+<script>
+  // Your web app's Firebase configuration
+  var firebaseConfig = {
+    apiKey: "AIzaSyCR8mkLWRKe5Xg637SFlDWbJ0C3LlLeZwY",
+    authDomain: "aura-c798e.firebaseapp.com",
+    databaseURL: "https://aura-c798e.firebaseio.com",
+    projectId: "aura-c798e",
+    storageBucket: "aura-c798e.appspot.com",
+    messagingSenderId: "232399468940",
+    appId: "1:232399468940:web:c192e7192a46912e"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+
+
+if (localStorage.getItem("userId") != JSON.stringify(null)) {
+
+  window.location = "profile.php"
+
+}
+
+
+
+
+
+
+      function onSignIn(googleUser) {
+        // Useful data for your client-side scripts:
+        var profile = googleUser.getBasicProfile();
+
+
+        // The ID token you need to pass to your backend:
+        var id_token = googleUser.getAuthResponse().id_token;
+
+
+        var userId = profile.getId();
+        var name = profile.getName();
+        var ImageURL = profile.getImageUrl();
+        var Email = profile.getEmail();
+
+
+        localStorage.setItem("userId",userId);
+        localStorage.setItem("name",name);
+        localStorage.setItem("ImageURL",ImageURL);
+        localStorage.setItem("Email",Email);
+
+
+
+  firebase.database().ref('users/' + userId).set({
+    username: name,
+    ImageURL: ImageURL,
+    Email: Email
+  }, function(error) {
+    if (error) {
+      console.log('The write failed...');
+    } else {
+      console.log('Data saved successfully!');
+    }
+  });
+window.location = "profile.php";
+
+
+
+
+
+}
+
+
+ $(document).ready(function(){
+    $('.tabs').tabs({
+      swipeable : true,
+  responsiveThreshold : Infinity,
+    });
+  });
+
+
+
+
+
+    </script>
+  </body>
+</html>
+

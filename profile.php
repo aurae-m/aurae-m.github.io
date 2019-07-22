@@ -1,0 +1,172 @@
+
+
+<script type="text/javascript">
+var ImageURL = localStorage.getItem("ImageURL");
+var name = localStorage.getItem("name");
+var userId = localStorage.getItem("userId");
+var Email = localStorage.getItem("Email");
+</script>
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title>profile</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+
+    <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+
+    <!-- Compiled and minified CSS -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+
+    <!-- Compiled and minified JavaScript -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+    
+
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body style="font-family: Verdana; ">
+
+
+<div id="preloader" style="z-index: 1000; position: fixed; left: 0px;right: 0px;top: 0px;bottom: 0px; background: -webkit-linear-gradient(#2196f3 , #4527a0 );" >
+<div class="row" style="position: relative;top: 30vw;">
+
+<center>
+ <div id="container">
+    <div id="halfclip">
+        <div class="halfcircle" id="clipped">
+
+        </div>
+    </div>
+    <div class="halfcircle" id="fixed">
+    </div>
+    <div style="position: relative; top: 10vw; 
+  background: -webkit-linear-gradient(#FFD700, #FF8C00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;">
+    <h2><b>300</b></h2>
+    </div>
+
+</div>
+
+</center>
+</div>
+
+<center>
+  <div style="top: 60vw; position: relative;">
+  <h5 style="
+  background: -webkit-linear-gradient(#FFD700, #FF8C00);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  position: relative;
+  top: 45vw;">Congo!! It's 300 day streak!</h5>
+  </div>
+</center>
+
+</div>
+
+
+
+
+
+
+<div style="background: -webkit-linear-gradient(#2196f3 , #4527a0 ); position: fixed;z-index: -1; width: 100%; height: 100%;"></div>
+
+  <nav style="background-color: transparent; box-shadow: 0px;" >
+    <div class="nav-wrapper" style="background-color: transparent;">
+      
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons medium">menu</i></a>
+      <ul class="right hide-on-med-and-down sidenav">
+        <li><a href="#">Explore</a></li>
+        <li><a href="#">Materials</a></li>
+        <li><a href="#">Quiz</a></li>
+        <li><a href="#">Mobile</a></li>
+      </ul>
+    </div>
+  </nav>
+
+
+<div style="width:100%; position: absolute;left: 0px;top: 0px;" >
+	<center>
+		
+<img src="g15628.png" style="width:100%;">
+</center>
+
+
+<div class="container blue-text darken-4" style="position: relative;top: -40px;">
+	<p class=" white-text" ><b>Welcome</b></p>
+<h5><b><div id="name" style="
+  background: -webkit-linear-gradient(white, white);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;"></div></b></h5>
+</div><h3>
+<br>
+
+
+	</div>
+</body>
+
+
+
+
+
+
+  <ul class="sidenav" id="mobile-demo" style="background-color:#130336;background-image: url('path1465.png'); background-origin: top; background-repeat: no-repeat;">
+
+  	<li><center><br><img id="imageBox" src="" style="border-radius: 15px;"><br><br></center></li>
+    <li><a href="#" class="white-text"><i class="Small material-icons white-text">explore</i>Explore</a></li>
+    <li><a href="#" class="white-text"><i class="Small material-icons white-text">library_books</i>Materials</a></li>
+    <li><a href="#" class="white-text"><i class="Small material-icons white-text">question_answer</i>Quiz</a></li>
+    <li><a href="#" class="white-text"><i class="Small material-icons white-text">people</i>Community</a></li>
+    <li><a href="#" class="white-text" id="Logout"><i class="Small material-icons white-text">arrow_back</i>Logout</a></li>
+  </ul>
+         
+
+
+
+
+
+
+
+
+
+
+<script type="text/javascript">
+	document.getElementById('imageBox').src = ImageURL;
+	document.getElementById('name').innerHTML  = name;
+
+
+
+   $(document).ready(function(){
+    $('.sidenav').sidenav();
+
+    setTimeout(function() {
+        $("#preloader").fadeOut(1500);
+    }, 3000);
+
+  });
+       
+
+$("#Logout").click(function(){
+  localStorage.setItem("userId", JSON.stringify(null));
+  window.location = "index.php"
+});
+
+if (localStorage.getItem("userId") == JSON.stringify(null)) {
+
+  window.location = "index.php"
+
+}
+
+
+
+</script>
+
+</html>
