@@ -26,15 +26,7 @@
     <script type="text/javascript">
       if (localStorage.getItem("userId") != JSON.stringify(null)) {
   window.location = "profile.html"
-}else{
-
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      console.log('User signed out.');
-    });
-
 }
-
     </script>
   </head>
   <body class="" style="background-color: #140054;
@@ -125,7 +117,12 @@ background-image: url('https://www.transparenttextures.com/patterns/arabesque.pn
 
 
 
-
+if (localStorage.getItem("userId") == JSON.stringify(null)) {
+  var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+}
 
 
 
@@ -164,7 +161,7 @@ background-image: url('https://www.transparenttextures.com/patterns/arabesque.pn
       console.log('Data saved successfully!');
     }
   });
-//window.location = "profile.html";
+window.location = "profile.html";
 
 
 
