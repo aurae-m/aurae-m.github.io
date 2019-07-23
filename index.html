@@ -25,8 +25,13 @@
 
     <script type="text/javascript">
       if (localStorage.getItem("userId") != JSON.stringify(null)) {
-
   window.location = "profile.html"
+}else{
+
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
 
 }
 
@@ -182,14 +187,8 @@ background-image: url('https://www.transparenttextures.com/patterns/arabesque.pn
     </script>
 
 
-    <a href="#" onclick="signOut();" style="position: fixed; z-index: 90; bottom: 500px;">Sign out</a>
 <script>
-  function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      console.log('User signed out.');
-    });
-  }
+  
 </script>
   </body>
 </html>
