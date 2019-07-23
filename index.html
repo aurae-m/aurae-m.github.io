@@ -101,6 +101,9 @@ background-image: url('https://www.transparenttextures.com/patterns/arabesque.pn
 <!-- TODO: Add SDKs for Firebase products that you want to use
      https://firebase.google.com/docs/web/setup#config-web-app -->
 
+
+
+
 <script>
   // Your web app's Firebase configuration
   var firebaseConfig = {
@@ -156,7 +159,7 @@ background-image: url('https://www.transparenttextures.com/patterns/arabesque.pn
       console.log('Data saved successfully!');
     }
   });
-window.location = "profile.html";
+//window.location = "profile.html";
 
 
 
@@ -177,6 +180,17 @@ window.location = "profile.html";
 
 
     </script>
+
+
+    <a href="#" onclick="signOut();">Sign out</a>
+<script>
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
+</script>
   </body>
 </html>
 
