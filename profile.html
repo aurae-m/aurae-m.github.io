@@ -31,6 +31,7 @@ var Email = localStorage.getItem("Email");
 
     <meta name="google-signin-client_id" content="232399468940-kqjgeubnaimp5a8hr5c4uk2qo163jdjr.apps.googleusercontent.com">
     <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <meta name="google-signin-scope" content="profile email">
     
 
     <link rel="stylesheet" type="text/css" href="style.css">
@@ -147,6 +148,22 @@ var Email = localStorage.getItem("Email");
 
 
 <script type="text/javascript">
+
+  var firebaseConfig = {
+    apiKey: "AIzaSyCR8mkLWRKe5Xg637SFlDWbJ0C3LlLeZwY",
+    authDomain: "aura-c798e.firebaseapp.com",
+    databaseURL: "https://aura-c798e.firebaseio.com",
+    projectId: "aura-c798e",
+    storageBucket: "aura-c798e.appspot.com",
+    messagingSenderId: "232399468940",
+    appId: "1:232399468940:web:c192e7192a46912e"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+
+
+  
 	document.getElementById('imageBox').src = ImageURL;
 	document.getElementById('name').innerHTML  = name;
 
