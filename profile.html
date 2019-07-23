@@ -194,6 +194,7 @@ $("#Logout").click(function(){
     auth2.signOut().then(function () {
       console.log('User signed out.');
     });
+    console.log('User');
   if (localStorage.getItem("userId") == JSON.stringify(null)) {
   window.location = "index.html"
 }
