@@ -31,15 +31,6 @@ var Email = localStorage.getItem("Email");
     
 
     <link rel="stylesheet" type="text/css" href="style.css">
-
-
-
-
-    <meta name="google-signin-scope" content="profile email">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-
-    <meta name="google-signin-client_id" content="232399468940-kqjgeubnaimp5a8hr5c4uk2qo163jdjr.apps.googleusercontent.com">
-    <script src="https://apis.google.com/js/platform.js" async defer></script>
 </head>
 <body style="font-family: Verdana; ">
 
@@ -141,33 +132,13 @@ var Email = localStorage.getItem("Email");
 
 
 
-    <!-- The core Firebase JS SDK is always required and must be listed first -->
-<script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
 
-<script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
 
 
 
 
 
 <script type="text/javascript">
-
-
-  var firebaseConfig = {
-    apiKey: "AIzaSyCR8mkLWRKe5Xg637SFlDWbJ0C3LlLeZwY",
-    authDomain: "aura-c798e.firebaseapp.com",
-    databaseURL: "https://aura-c798e.firebaseio.com",
-    projectId: "aura-c798e",
-    storageBucket: "aura-c798e.appspot.com",
-    messagingSenderId: "232399468940",
-    appId: "1:232399468940:web:c192e7192a46912e"
-  };
-  // Initialize Firebase
-  firebase.initializeApp(firebaseConfig);
-
-
-
-
 	document.getElementById('imageBox').src = ImageURL;
 	document.getElementById('name').innerHTML  = name;
 
@@ -181,27 +152,14 @@ var Email = localStorage.getItem("Email");
     }, 3000);
 
   });
-       function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      console.log('User signed out.');
-    });
-  }
+       
 
 $("#Logout").click(function(){
   localStorage.setItem("userId", JSON.stringify(null));
-  var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      console.log('User signed out.');
-    });
-    console.log('User');
   if (localStorage.getItem("userId") == JSON.stringify(null)) {
   window.location = "index.html"
 }
 });
-
-
-
 
 if (localStorage.getItem("userId") == JSON.stringify(null)) {
 
