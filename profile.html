@@ -156,7 +156,11 @@ var Email = localStorage.getItem("Email");
 
 $("#Logout").click(function(){
   localStorage.setItem("userId", JSON.stringify(null));
+  if (localStorage.getItem("userId") == JSON.stringify(null)) {
+
   window.location = "index.html"
+
+}
 });
 
 if (localStorage.getItem("userId") == JSON.stringify(null)) {
