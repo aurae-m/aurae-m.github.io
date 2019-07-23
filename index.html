@@ -21,6 +21,16 @@
     <style type="text/css">
       .tabs-content.carousel { height: 100%; overflow-x:hidden; overflow-y: scroll; } .tabs-content.carousel .carousel-item { width: 100%; height: 100%; } html,body{ overflow:hidden; height:100%; }
     </style>
+
+
+    <script type="text/javascript">
+      if (localStorage.getItem("userId") != JSON.stringify(null)) {
+
+  window.location = "profile.html"
+
+}
+
+    </script>
   </head>
   <body class="" style="background-color: #140054;
 background-image: url('https://www.transparenttextures.com/patterns/arabesque.png');">
@@ -107,11 +117,6 @@ background-image: url('https://www.transparenttextures.com/patterns/arabesque.pn
 
 
 
-if (localStorage.getItem("userId") != JSON.stringify(null)) {
-
-  window.location = "profile.html"
-
-}
 
 
 
