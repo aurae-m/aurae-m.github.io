@@ -134,6 +134,8 @@ var Email = localStorage.getItem("Email");
 
 <script>
 
+    
+
 </script>
 
 
@@ -146,12 +148,7 @@ var Email = localStorage.getItem("Email");
 	document.getElementById('name').innerHTML  = name;
 
 
-  function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      console.log('User signed out.');
-    });
-  }
+
 
 
 
@@ -167,6 +164,10 @@ var Email = localStorage.getItem("Email");
 
 $("#Logout").click(function(){
   localStorage.setItem("userId", JSON.stringify(null));
+  var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
       if (localStorage.getItem("userId") == JSON.stringify(null)) {
   window.location = "index.html"
 }
