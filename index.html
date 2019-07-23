@@ -117,12 +117,12 @@ background-image: url('https://www.transparenttextures.com/patterns/arabesque.pn
 
 
 
-if (localStorage.getItem("userId") == JSON.stringify(null)) {
+
   var auth2 = gapi.auth2.getAuthInstance();
     auth2.signOut().then(function () {
       console.log('User signed out.');
     });
-}
+
 
 
 
