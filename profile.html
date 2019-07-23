@@ -181,7 +181,12 @@ var Email = localStorage.getItem("Email");
     }, 3000);
 
   });
-       
+       function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
 
 $("#Logout").click(function(){
   localStorage.setItem("userId", JSON.stringify(null));
@@ -191,12 +196,7 @@ $("#Logout").click(function(){
 });
 
 
-function signOut() {
-    var auth2 = gapi.auth2.getAuthInstance();
-    auth2.signOut().then(function () {
-      console.log('User signed out.');
-    });
-  }
+
 
 if (localStorage.getItem("userId") == JSON.stringify(null)) {
 
