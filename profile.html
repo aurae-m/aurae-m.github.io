@@ -125,13 +125,16 @@ var Email = localStorage.getItem("Email");
     <li><a href="#" class="white-text"><i class="Small material-icons white-text">library_books</i>Materials</a></li>
     <li><a href="#" class="white-text"><i class="Small material-icons white-text">question_answer</i>Quiz</a></li>
     <li><a href="#" class="white-text"><i class="Small material-icons white-text">people</i>Community</a></li>
-    <li><a href="#" class="white-text" id="Logout"><i class="Small material-icons white-text">arrow_back</i>Logout</a></li>
+    <li><a href="#" onclick="signOut();" class="white-text" id="Logout"><i class="Small material-icons white-text">arrow_back</i>Logout</a></li>
   </ul>
          
 
 
 
 
+<script>
+
+</script>
 
 
 
@@ -141,6 +144,14 @@ var Email = localStorage.getItem("Email");
 <script type="text/javascript">
 	document.getElementById('imageBox').src = ImageURL;
 	document.getElementById('name').innerHTML  = name;
+
+
+  function signOut() {
+    var auth2 = gapi.auth2.getAuthInstance();
+    auth2.signOut().then(function () {
+      console.log('User signed out.');
+    });
+  }
 
 
 
