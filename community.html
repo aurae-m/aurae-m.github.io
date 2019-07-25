@@ -1,0 +1,107 @@
+
+<script type="text/javascript">
+var ImageURL = localStorage.getItem("ImageURL");
+var name = localStorage.getItem("name");
+var userId = localStorage.getItem("userId");
+var Email = localStorage.getItem("Email");
+</script>
+
+
+
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/css/materialize.min.css">
+     <script
+  src="https://code.jquery.com/jquery-3.4.1.min.js"
+  integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo="
+  crossorigin="anonymous"></script>
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0/js/materialize.min.js"></script>
+
+      <meta name="google-signin-client_id" content="232399468940-kqjgeubnaimp5a8hr5c4uk2qo163jdjr.apps.googleusercontent.com">
+    <script src="https://apis.google.com/js/platform.js" async defer></script>
+    <script src="https://www.gstatic.com/firebasejs/6.2.4/firebase-app.js"></script>
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+
+<script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
+
+
+</head>
+<body class="" style="background: -webkit-linear-gradient(#2196f3 , #4527a0 );">
+
+ <nav style="background-color: transparent; box-shadow: 0px;" >
+    <div class="nav-wrapper" style="background-color: transparent;">
+      
+      <a href="#" data-target="mobile-demo" class="sidenav-trigger"><i class="material-icons medium">menu</i></a>
+      <ul class="right hide-on-med-and-down sidenav">
+        <li><a href="#">Explore</a></li>
+        <li><a href="#">Materials</a></li>
+        <li><a href="#">Quiz</a></li>
+        <li><a href="#">Mobile</a></li>
+      </ul>
+    </div>
+  </nav>
+  <ul class="sidenav" id="mobile-demo" style="background-color:#130336;background-image: url('path1465.png'); background-origin: top; background-repeat: no-repeat;">
+
+  	<li><center><br><img id="imageBox" src="" style="border-radius: 15px;"><br><br></center></li>
+    <li><a href="#" class="white-text"><i class="Small material-icons white-text">explore</i>Explore</a></li>
+    <li><a href="#" class="white-text"><i class="Small material-icons white-text">library_books</i>Materials</a></li>
+    <li><a href="#" class="white-text"><i class="Small material-icons white-text">question_answer</i>Quiz</a></li>
+    <li><a href="#" class="white-text"><i class="Small material-icons white-text">people</i>Community</a></li>
+    <li><a href="#" class="white-text" id="Logout"><i class="Small material-icons white-text">arrow_back</i>Logout</a></li>
+  </ul>
+
+
+
+
+<div class="" style="position: fixed;bottom: 5px; width: 100%;"><div class="container white" style="border-radius: 15px"><input  type="text" name="comment"><input class="hide" type="submit" name="submit"></div></div>
+
+
+
+<script type="text/javascript">
+
+	document.getElementById('imageBox').src = ImageURL;
+	
+
+	  var firebaseConfig = {
+    apiKey: "AIzaSyCR8mkLWRKe5Xg637SFlDWbJ0C3LlLeZwY",
+    authDomain: "aura-c798e.firebaseapp.com",
+    databaseURL: "https://aura-c798e.firebaseio.com",
+    projectId: "aura-c798e",
+    storageBucket: "aura-c798e.appspot.com",
+    messagingSenderId: "232399468940",
+    appId: "1:232399468940:web:c192e7192a46912e"
+  };
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+
+
+
+
+var leadsRef = firebase.database().ref('community/');
+leadsRef.on('value', function(snapshot) {
+    snapshot.forEach(function(childSnapshot) {
+      var childData = childSnapshot.val();
+      console.log(childData);
+    });
+});
+
+// var myRef = firebase.database().ref('community/').push();
+//   var newData={
+//       username = name,
+//       userId = userId,
+//       comment = comment
+//    }
+
+//    myRef.push(newData);
+
+$(document).ready(function(){
+    $('.sidenav').sidenav();
+});
+
+</script>
+</body>
+</html>
