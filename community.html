@@ -57,11 +57,20 @@ var Email = localStorage.getItem("Email");
 
 
 
-<div class="" style="position: fixed;bottom: 5px; width: 100%;"><div class="container white" style="border-radius: 15px"><input  type="text" name="comment"><input class="hide" type="submit" name="submit"></div></div>
+<div class="" style="position: fixed;bottom: 5px; width: 100%;"><form><div class="container white" style="border-radius: 15px"><input  type="text" name="comment"><input class="hide" type="submit" name="submit"></div></form></div>
 
 
 
 <script type="text/javascript">
+
+
+	$( "form" ).submit(function( event ) {  
+  if ( $( "input:first" ).val() != JSON.stringify(null)) {  
+    console.log($( "input:first" ).val());
+    return;  
+  }  
+  event.preventDefault();  
+});  
 
 	document.getElementById('imageBox').src = ImageURL;
 	
