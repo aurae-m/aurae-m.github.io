@@ -109,7 +109,7 @@ leadsRef.on('child_added', function(snapshot) {
       	 $(".com").append("<div class='com2'><p>" + childData['comment'] + "</p></div>");
       }
       else{
-      	$(".com").append("<div class='com1'><p><b>" + childData['name'] + "</b> : " + childData['comment'] + "</p></div>");
+      	$(".com").append("<div class='com1'><img src='"+ childData['ImageURL'] +"' style='height:30px; width: 30px; border-radius: 15px;'><p><b>" + childData['name'] + "</b> : " + childData['comment'] + "</p></div>");
       }
      
 });
@@ -130,6 +130,7 @@ $(document).ready(function(){
   firebase.database().ref('community/' + n).set({
     name: name,
     userId:userId,
+    ImageURL:ImageURL,
     comment: $( "input:first" ).val(),
   }, function(error) {
     if (error) {
