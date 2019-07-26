@@ -35,6 +35,16 @@ var Email = localStorage.getItem("Email");
 		border-radius: 15px;
 		padding-left: 10px;
 	}
+	.com1{
+		width: 70%;
+		left: 10%;
+	}
+	.com2{
+		width: 70%;
+		position: relative;
+		left: 20%;
+		text-align: left;
+	}
 </style>
 </head>
 <body class="" style="background: -webkit-linear-gradient(#2196f3 , #4527a0 );">
@@ -67,7 +77,7 @@ var Email = localStorage.getItem("Email");
 <div id="end"></div>
 
 
-<div class="" style="position: fixed;bottom: 5px; width: 100%;"><form><div class="container blue lighten-4" style="border-radius: 10px"><input style="width: 90%; left: 5%;position: relative;"  type="text" name="comment"><input class="hide" type="submit" name="submit"></div></form></div>
+<div class="" style="position: relative;bottom: 5px; width: 100%;"><form id="form"><div class="container blue lighten-4" style="border-radius: 10px"><input style="width: 90%; left: 5%;position: relative;"  type="text" name="comment"><input class="hide" type="submit" name="submit"></div></form></div>
 
 
 
@@ -95,8 +105,13 @@ $(document).ready(function(){
 var leadsRef = firebase.database().ref('community/');
 leadsRef.on('child_added', function(snapshot) {
       var childData = snapshot.val();
-      console.log(childData['comment']);
-      $(".com").append("<div class='com1'><p><b>" + childData['name'] + "</b> : " + childData['comment'] + "</p></div>");
+      if (childData['userId'] == userId) {
+      	 $(".com").append("<div class='com2'><p>" + childData['comment'] + "</p></div>");
+      }
+      else{
+      	$(".com").append("<div class='com1'><p><b>" + childData['name'] + "</b> : " + childData['comment'] + "</p></div>");
+      }
+     
 });
 
 });
@@ -114,12 +129,14 @@ $(document).ready(function(){
   var n = d.getTime();
   firebase.database().ref('community/' + n).set({
     name: name,
+    userId:userId,
     comment: $( "input:first" ).val(),
   }, function(error) {
     if (error) {
       console.log('The write failed...');
     } else {
       console.log('Data saved successfully!');
+       $("#form")[0].reset();
     }
   });
 
