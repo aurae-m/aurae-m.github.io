@@ -64,6 +64,7 @@ var Email = localStorage.getItem("Email");
 <div class="container com white ">
 	<br>
 </div>
+<div id="end"></div>
 
 
 <div class="" style="position: fixed;bottom: 5px; width: 100%;"><form><div class="container blue lighten-4" style="border-radius: 10px"><input style="width: 90%; left: 5%;position: relative;"  type="text" name="comment"><input class="hide" type="submit" name="submit"></div></form></div>
@@ -90,17 +91,15 @@ var Email = localStorage.getItem("Email");
 
 
 
-
+$(document).ready(function(){
 var leadsRef = firebase.database().ref('community/');
-leadsRef.on('value', function(snapshot) {
-    snapshot.forEach(function(childSnapshot) {
-      var childData = childSnapshot.val();
+leadsRef.on('child_added', function(snapshot) {
+      var childData = snapshot.val();
       console.log(childData['comment']);
       $(".com").append("<div class='com1'><p><b>" + childData['name'] + "</b> : " + childData['comment'] + "</p></div>");
-      
-    });
 });
 
+});
 
 
 $(document).ready(function(){
