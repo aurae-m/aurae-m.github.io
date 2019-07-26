@@ -109,7 +109,7 @@ leadsRef.on('child_added', function(snapshot) {
       	 $(".com").append("<div class='com2'><p>" + childData['comment'] + "</p></div>");
       }
       else{
-      	$(".com").append("<div class='com1'><img src='"+ childData['ImageURL'] +"' style='height:30px; width: 30px; border-radius: 15px;'><p><b>" + childData['name'] + "</b> : " + childData['comment'] + "</p></div>");
+      	$(".com").append("<div class='com1'><p><img src='"+ childData['ImageURL'] +"' style='height:30px; width: 30px; border-radius: 15px;'><b>" + childData['name'] + "</b><br>" + childData['comment'] + "</p></div>");
       }
      
 });
