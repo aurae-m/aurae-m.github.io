@@ -28,7 +28,14 @@ var Email = localStorage.getItem("Email");
 
 <script src="https://www.gstatic.com/firebasejs/3.1.0/firebase-database.js"></script>
 
-
+<style type="text/css">
+	.com{
+		position: relative;
+		left: 3px;
+		border-radius: 15px;
+		padding-left: 10px;
+	}
+</style>
 </head>
 <body class="" style="background: -webkit-linear-gradient(#2196f3 , #4527a0 );">
 
@@ -54,23 +61,17 @@ var Email = localStorage.getItem("Email");
     <li><a href="#" class="white-text" id="Logout"><i class="Small material-icons white-text">arrow_back</i>Logout</a></li>
   </ul>
 
+<div class="container com white ">
+	<br>
+</div>
 
 
-
-<div class="" style="position: fixed;bottom: 5px; width: 100%;"><form><div class="container white" style="border-radius: 15px"><input  type="text" name="comment"><input class="hide" type="submit" name="submit"></div></form></div>
+<div class="" style="position: fixed;bottom: 5px; width: 100%;"><form><div class="container blue lighten-4" style="border-radius: 10px"><input style="width: 90%; left: 5%;position: relative;"  type="text" name="comment"><input class="hide" type="submit" name="submit"></div></form></div>
 
 
 
 <script type="text/javascript">
 
-
-	$( "form" ).submit(function( event ) {  
-  if ( $( "input:first" ).val() != JSON.stringify(null)) {  
-    alert($( "input:first" ).val());
-    return;  
-  }  
-  event.preventDefault();  
-});  
 
 	document.getElementById('imageBox').src = ImageURL;
 	
@@ -94,22 +95,38 @@ var leadsRef = firebase.database().ref('community/');
 leadsRef.on('value', function(snapshot) {
     snapshot.forEach(function(childSnapshot) {
       var childData = childSnapshot.val();
-      console.log(childData);
+      console.log(childData['comment']);
+      $(".com").append("<div class='com1'><p><b>" + childData['name'] + "</b> : " + childData['comment'] + "</p></div>");
+      
     });
 });
 
-// var myRef = firebase.database().ref('community/').push();
-//   var newData={
-//       username = name,
-//       userId = userId,
-//       comment = comment
-//    }
 
-//    myRef.push(newData);
 
 $(document).ready(function(){
     $('.sidenav').sidenav();
 });
+
+
+
+	$( "form" ).submit(function( event ) {  
+  if ( $( "input:first" ).val() != JSON.stringify(null)) { 
+  var d = new Date();
+  var n = d.getTime();
+  firebase.database().ref('community/' + n).set({
+    name: name,
+    comment: $( "input:first" ).val(),
+  }, function(error) {
+    if (error) {
+      console.log('The write failed...');
+    } else {
+      console.log('Data saved successfully!');
+    }
+  });
+
+  }  
+  event.preventDefault();  
+});  
 
 </script>
 </body>
